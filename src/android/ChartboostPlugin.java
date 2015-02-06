@@ -10,7 +10,6 @@ import org.json.JSONException;
 
 import com.chartboost.sdk.Chartboost;
 import com.chartboost.sdk.CBLocation;
-import com.chartboost.sdk.ChartboostActivity;
 import com.chartboost.sdk.ChartboostDelegate;
 import com.chartboost.sdk.Model.CBError.CBClickError;
 import com.chartboost.sdk.Model.CBError.CBImpressionError;
@@ -18,17 +17,15 @@ import com.chartboost.sdk.Model.CBError.CBImpressionError;
 import org.apache.cordova.PluginResult;
 import org.apache.cordova.PluginResult.Status;
 
-import android.os.Bundle;
-
 import android.util.Log;
 
 public class ChartboostPlugin extends CordovaPlugin {
  private static final String LOG_TAG = "ChartboostPlugin";
  
- private String adId                  = "";
- private String appSignature          = "";
- private boolean alreadyStarted       = false;
- private boolean interstitialIsCached = false;
+ private String adId            = "";
+ private String appSignature    = "";
+ private boolean alreadyStarted = false;
+ 
  @Override public boolean execute (String action, JSONArray inputs, CallbackContext callbackContext) throws JSONException {
   PluginResult result = null;
   if ("setOptions".equals(action)) {
@@ -66,7 +63,6 @@ public class ChartboostPlugin extends CordovaPlugin {
   @Override public boolean shouldRequestInterstitial (String location) {return true;}
   @Override public boolean shouldDisplayInterstitial(String location) {return true;}
   @Override public void didCacheInterstitial (String location) {
-   interstitialIsCached = true;
    webView.loadUrl ("javascript:cordova.fireDocumentEvent('onReceiveInterstitialAd', {'ad_network': 'chartboost'});");
   }
   @Override public void didFailToLoadInterstitial (String location, CBImpressionError error) {
@@ -81,7 +77,6 @@ public class ChartboostPlugin extends CordovaPlugin {
    webView.loadUrl ("javascript:cordova.fireDocumentEvent('onLeaveToInterstitialAd', {'ad_network': 'chartboost'});");
   }
   @Override public void didDisplayInterstitial (String location) {
-   interstitialIsCached = false;
    webView.loadUrl ("javascript:cordova.fireDocumentEvent('onPresentInterstitialAd', {'ad_network': 'chartboost'});");
   }
   //@Override public boolean shouldRequestMoreApps (String location) {return true;}
