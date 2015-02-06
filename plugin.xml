@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.flyingsoftgames.chartboostplugin" version="1.0.0">
+ 
+ <name>Chartboost Plugin</name>
+ <description>Chartboost plugin.</description>
+ <author>Michael Romanovsky</author>
+ <license>MIT</license>
+ <keywords>ad,Chartboost</keywords>
+ <repo>https://github.com/agamemnus/cordova-plugin-Chartboost.git</repo>
+ <issue>https://github.com/agamemnus/cordova-plugin-Chartboost/issues</issue>
+ 
+ <engines><engine name="cordova" version=">=2.9" /></engines>
+ 
+ <js-module src="www/chartboostplugin.js" name="ChartboostPlugin">
+  <clobbers target="window.plugins.ChartboostPlugin" />
+ </js-module>
+ 
+ <!-- android -->
+ <platform name="android">
+  <dependency id="com.google.playservices" />
+  <config-file target="res/values/strings.xml" parent="/resources">
+   <string name="chartboost_app_signature">$CHARTBOOST_APP_SIGNATURE</string>
+  </config-file>
+  <config-file target="res/xml/config.xml" parent="/*">
+   <feature name="ChartboostPlugin">
+    <param name="android-package" value="com.flyingsoftgames.chartboostplugin.ChartboostPlugin" />
+   </feature>
+  </config-file>
+  <source-file src="src/android/ChartboostPlugin.java" target-dir="src/com/flyingsoftgames/chartboostplugin" />
+  <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+   <activity android:name="com.chartboost.sdk.CBImpressionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:excludeFromRecents="true" />
+  </config-file>
+  <config-file target="AndroidManifest.xml" parent="/manifest">
+   <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  </config-file>
+ </platform>
+</plugin>
