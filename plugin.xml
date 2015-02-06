@@ -28,7 +28,7 @@
    </feature>
   </config-file>
   <source-file src="src/android/ChartboostPlugin.java" target-dir="src/com/flyingsoftgames/chartboostplugin" />
-  <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+  <config-file target="AndroidManifest.xml" parent="/manifest/application">
    <activity android:name="com.chartboost.sdk.CBImpressionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:excludeFromRecents="true" />
   </config-file>
   <config-file target="AndroidManifest.xml" parent="/manifest">
