@@ -19,7 +19,8 @@
  <!-- android -->
  <platform name="android">
   <dependency id="com.google.playservices" />
-  <config-file target="res/values/chartboost.xml" parent="/*">
+  <source-file src="platforms/android/res/values/chartboostplugin.xml" target-dir="res/values" />
+  <config-file target="res/values/chartboostplugin.xml" parent="/*">
    <string name="chartboost_app_signature">$CHARTBOOST_APP_SIGNATURE</string>
   </config-file>
   <config-file target="res/xml/config.xml" parent="/*">
