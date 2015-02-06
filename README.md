@@ -4,6 +4,7 @@ Chartboost plugin for Cordova (Android-only currently).
 Installation
 --------
 1) ``cordova plugin add https://github.com/agamemnus/cordova-plugin-chartboost --variable CHARTBOOST_APP_SIGNATURE="the_chartboost_app_signature"``
+NOTE IN CORDOVA 3.6.4 WE ARE FUBAR ON ``--variable``: it doesn't work. Make sure to manually set ``chartboost_app_signature`` yourself in the res/values/strings.xml file.
 
 2) Get the chartboost version 5 library file ("chartboost.jar") and put it in e.g. ``/platforms/android/libs/``.
 
