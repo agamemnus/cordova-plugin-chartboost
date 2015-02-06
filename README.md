@@ -34,13 +34,13 @@ chartboost_plugin.showInterstitialAd ({
 
 3) Show run ``showInterstitialAd`` again to show another ad.
 
-4) There are several supported event listeners, all of which send an object with an ``ad_network: chartboost`` property.
+4) There are several supported event listeners, all of which send an object with an ``ad_network: 'chartboost'`` property.
 ````
 onReceiveInterstitialAd         // Runs when an interstitial is cached.
 onDismissInterstitialAd         // Runs when an interstitial is dismissed, which happens when a user clicks the "X" button or when the user clicks the ad itself.
 onLeaveToInterstitialAd         // Runs when a user clicks the interstitial ad.
 onPresentInterstitialAd         // Runs when an interstitial is shown to the user.
-onFailedToReceiveInterstitialAd // Runs when Chartboost refuses to send an ad for some reason. The response value includes an "error" property indicating the error reason.
+onFailedToReceiveInterstitialAd // Runs when Chartboost refuses to send an ad for some reason. The response value includes an "error" string property indicating the error reason.
 ````
 
 5) Example usage of callback:
