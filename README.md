@@ -9,6 +9,13 @@ NOTE IN CORDOVA 3.6.4 WE ARE FUBAR ON ``--variable``: it doesn't work. Make sure
 2) Get the chartboost version 5 library file ("chartboost.jar") and put it in e.g. ``/platforms/android/libs/``.
 
 
+Donations
+--------
+Gratipay / Gittip: https://gratipay.com/agamemnus/
+
+Paypal: agamemnus at flyingsoftgames dot com
+
+
 Usage
 --------
 1) Run ``createInterstitialView`` with the adId parameter -- i.e.: the chartboost "app id".
